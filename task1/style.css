@@ -1,0 +1,108 @@
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+
+
+div {
+    background: #888;
+}
+
+
+.main {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-areas:
+            'header header'
+            'side-2 content'
+            'side-1 content'
+            'footer footer';
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: min-content min-content 1fr auto;
+    min-height: 100%;
+    background-color: #fff;
+
+}
+
+.header {
+    grid-area: header;
+    padding: 15px;
+}
+
+.side-1 {
+    grid-area: side-1;
+
+    width: 300px;
+    background: green;
+}
+.side-2 {
+    grid-area: side-2;
+
+    width: 300px;
+    background: red;
+}
+
+.content {
+    grid-area: content;
+
+    background: yellow;
+
+    width: 100%;
+    height: fit-content;
+    font: medium -moz-fixed;
+    resize: both;
+    overflow: auto;
+}
+.content p {
+    padding: 15px;
+}
+
+.img{
+    float: left;
+    margin: 5px;
+}
+
+.footer {
+    align-self: end;
+    grid-area: footer;
+}
+
+
+
+.header,.side-1,.side-2,.footer{
+    padding: 15px;
+}
+.side-1,.side-2,.content{
+    resize: vertical;
+}
+
+
+
+@media (max-width: 900px) {
+    .main{
+        grid-template-areas:
+                'header header'
+                'side-2 side-2'
+                'content content'
+                'side-1 side-1'
+                'footer footer';
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, min-content) auto;
+
+    }
+    .side-2,.side-1{
+        width: 100%;
+    }
+
+}
